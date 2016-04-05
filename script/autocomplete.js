@@ -11,7 +11,7 @@ app.directive('autocomplete', function(){
       suggestions: '=data',
       onType: '=onType'
     },
-    controller: function($scope, $element, $attrs){
+    controller: function($scope, $element, $attrs,$timeout){
 
       $scope.searchParam;
 
@@ -80,7 +80,8 @@ app.directive('autocomplete', function(){
         $scope.searchParam = suggestion;
         $scope.searchFilter = suggestion;
         watching = false;
-        setTimeout(function(){watching = true;},1000);
+
+        $timeout(function(){watching = true;},1000);
         $scope.completing = false;
       }
     },

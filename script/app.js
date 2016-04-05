@@ -29,7 +29,7 @@ app.factory('MovieRetriever', function($http, $q, $timeout){
 });
 
 app.controller('MyCtrl', function($scope, MovieRetriever){
-  $scope.movies = MovieRetriever.getmovies("...");
+  $scope.movies = MovieRetriever.getmovies();
   $scope.movies.then(function(data){
     $scope.movies = data;
   });
